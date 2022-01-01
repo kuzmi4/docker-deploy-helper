@@ -4,9 +4,10 @@ ENV PORT=3000
 RUN apk update && apk add wget
 RUN wget https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-linux-x86_64 -o /bin/docker-compose
 RUN chmod +x /bin/docker-compose
+RUN apk add docker-cli
 
 WORKDIR /app
-COPY . . 
+COPY . .
 
 RUN yarn
 RUN yarn tsc -p .
@@ -14,4 +15,3 @@ RUN yarn tsc -p .
 EXPOSE ${PORT}
 
 CMD node build/index.js
-
