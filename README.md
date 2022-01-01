@@ -1,4 +1,4 @@
-## Helper for pull on redeplay docker-compose service
+## Helper for pull on redeploy docker-compose service
 
 ### Example: 
 
