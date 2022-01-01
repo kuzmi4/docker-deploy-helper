@@ -13,14 +13,14 @@ export default () => {
 
 
     app.get('/favicon.ico', (req, res) => res.status(204));
- 
+
 
     app.post('/', async (req, res) => {
         try {
             const body = bodySchema.parse(req.body)
             const { service } = body
-            await pullOne(service)
-            await upOne(service)
+            await pullOne(service, process.env.PROJECT)
+            await upOne(service, process.env.PROJECT)
             res.json({ service: 'Ok' })
         } catch (error) {
             console.log(error)

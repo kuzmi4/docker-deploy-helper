@@ -1,6 +1,7 @@
 import Compose from 'docker-compose'
-import { resolve } from 'path/posix';
 
 
-export const pullOne = (name: string) => Compose.pullOne(name, { config: (resolve(__dirname, '../config/docker-compose.yml')) })
-export const upOne = (name: string) => Compose.upOne(name, { config: (resolve(__dirname, '../config/docker-compose.yml')) })
+
+
+export const pullOne = (name: string, project: string = 'default') => Compose.pullOne(name, { composeOptions: ['-p', project], cwd: '/project' })
+export const upOne = (name: string, project: string = 'default') => Compose.upOne(name, { composeOptions: ['-p', project], cwd: '/project' })
