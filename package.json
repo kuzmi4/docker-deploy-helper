@@ -1,0 +1,25 @@
+{
+  "name": "docker-deploy-helper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "docker-compose": "^0.23.14",
+    "express": "^4.17.2"
+  },
+  "scripts": {
+    "build": "yarn tsc -p .",
+    "start": "yarn build && node build/index.js",
+    "dev": "ts-node-dev src/index.ts",
+    "zod": "ts-to-zod src/types.d.ts src/zod.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.5",
+    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
+    "ts-to-zod": "^1.8.0",
+    "typescript": "^4.5.4"
+  }
+}
